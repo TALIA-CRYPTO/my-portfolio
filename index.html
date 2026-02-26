@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyaboga Faith - Full-Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #667eea;
+        }
+
+        /* Projects */
+        .project-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero h2 { font-size: 20px; }
+            h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <h1>Your Name</h1>
+            <h2>Full-Stack Developer</h2>
+            <p>Building solutions for real-world problems using modern web technologies</p>
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="container">
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            
+            <div class="project-card">
+                <h3>🌾 Kisii AgriPrice - SMS Market Prices for Farmers</h3>
+                <p>
+                    A web application that delivers daily market prices via SMS to small-scale farmers in Kisii, Kenya. 
+                    Helps farmers avoid exploitation by middlemen by providing real-time local market information.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Africa's Talking API</span>
+                    <span class="tech-tag">RESTful API</span>
+                    <span class="tech-tag">Authentication</span>
+                </div>
+
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>Admin authentication & dashboard</li>
+                    <li>Price management for 6 crops</li>
+                    <li>Farmer registration & management</li>
+                    <li>Bulk SMS delivery system</li>
+                    <li>Real-time stats & analytics</li>
+                    <li>SMS logging & tracking</li>
+                </ul>
+
+                <p><strong>Impact:</strong> 2 registered farmers, 15+ SMS sent successfully, built in 3 days</p>
+
+                <div class="project-links">
+                    <a href="https://kisii-agri-sms.onrender.com" target="_blank">🔗 Live Demo</a>
+                    <a href="https://github.com/TALIA-CRYPTO/kisii-agri-sms" target="_blank">💻 GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Responsive Design</li>
+                        <li>React (learning)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>RESTful APIs</li>
+                        <li>Authentication & Sessions</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Database & Tools</h3>
+                    <ul>
+                        <li>JSON Data Storage</li>
+                        <li>MongoDB (learning)</li>
+                        <li>Git & GitHub</li>
+                        <li>Render Deployment</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <ul>
+                        <li>SMS API Integration</li>
+                        <li>Agile Development</li>
+                        <li>Problem Solving</li>
+                        <li>Documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 18px; line-height: 1.8;">
+                    I'm a passionate full-stack developer focused on building practical solutions 
+                    for real-world problems. I recently built Kisii AgriPrice, an SMS-based 
+                    market information system for farmers, in just 3 days.
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
+                    I love learning new technologies and taking on challenging projects. 
+                    Currently expanding my skills in React, MongoDB, and mobile development.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <a href="mailto:moraatalia9@gmail.com">📧 Email</a>
+                <a href="https://github.com/TALIA-CRYPTO" target="_blank">💻 GitHub</a>
+                
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Your Name. Built with ❤️ and Node.js</p>
+    </footer>
+</body>
+</html>
