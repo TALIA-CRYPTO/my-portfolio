@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyaboga Faith - Full-Stack Developer</title>
+    <title>TALIA CRYPTO - Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,317 +14,668 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --black: #000000;
+            --dark-bg: #0a0a0a;
+            --card-bg: #121212;
+            --card-border: #1e1e1e;
+            --electric-emerald: #00FF7F;
+            --cyber-lime: #CCFF00;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 255, 127, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(204, 255, 0, 0.05) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(0, 255, 127, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
             text-align: center;
-            padding: 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: clamp(40px, 8vw, 96px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
         }
 
-        .hero h2 {
-            font-size: 24px;
-            font-weight: 300;
-            margin-bottom: 20px;
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--electric-emerald), var(--cyber-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(0, 255, 127, 0.4);
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
         }
 
-        .btn {
+        .cta-button {
             display: inline-block;
-            padding: 12px 30px;
-            background: white;
-            color: #667eea;
+            padding: 18px 48px;
+            background: var(--electric-emerald);
+            color: var(--black);
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 10px;
-            transition: transform 0.3s;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(0, 255, 127, 0.3);
+            border: 2px solid var(--electric-emerald);
         }
 
-        .btn:hover {
+        .cta-button:hover {
+            background: transparent;
+            color: var(--electric-emerald);
+            box-shadow: 0 0 60px rgba(0, 255, 127, 0.5);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 120px 40px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Section */
-        section {
-            margin-bottom: 80px;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
             text-align: center;
-            color: #667eea;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
         }
 
-        /* Projects */
+        .section-title .accent {
+            color: var(--electric-emerald);
+            text-shadow: 0 0 30px rgba(0, 255, 127, 0.5);
+        }
+
+        /* Project Card */
         .project-card {
-            background: #f9f9f9;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 255, 127, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            border-color: var(--electric-emerald);
+            box-shadow: 0 0 50px rgba(0, 255, 127, 0.2);
+            transform: translateY(-8px);
         }
 
         .project-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 28px;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--electric-emerald);
         }
 
-        .project-card .tech-stack {
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 12px;
+            margin: 24px 0;
         }
 
         .tech-tag {
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
+            padding: 8px 20px;
+            background: rgba(0, 255, 127, 0.1);
+            border: 1px solid rgba(0, 255, 127, 0.3);
             border-radius: 20px;
             font-size: 14px;
+            color: var(--electric-emerald);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 255, 127, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
         }
 
         .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .project-link {
+            padding: 12px 28px;
+            background: transparent;
+            border: 2px solid var(--electric-emerald);
+            color: var(--electric-emerald);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
+        }
+
+        .project-link:hover {
+            background: var(--electric-emerald);
+            color: var(--black);
+            box-shadow: 0 0 40px rgba(0, 255, 127, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--electric-emerald);
+            box-shadow: 0 0 40px rgba(0, 255, 127, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--electric-emerald), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 24px;
+            font-size: 32px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            list-style: none;
             margin-top: 20px;
         }
 
-        .project-links a {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            margin-top: 10px;
+        .service-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 24px;
         }
 
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .service-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--electric-emerald);
+            font-weight: bold;
         }
 
-        .skill-category {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+        /* Process Timeline */
+        .process-timeline {
+            max-width: 900px;
+            margin: 80px auto;
+            position: relative;
         }
 
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 15px;
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--electric-emerald), var(--cyber-lime));
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
         }
 
-        .skill-category ul {
-            list-style: none;
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 60px;
         }
 
-        .skill-category li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        /* Contact */
-        .contact-links {
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border: 3px solid var(--electric-emerald);
+            border-radius: 50%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--electric-emerald);
+            box-shadow: 0 0 30px rgba(0, 255, 127, 0.4);
         }
 
-        .contact-links a {
-            padding: 15px 30px;
-            background: #667eea;
-            color: white;
+        .process-step h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: var(--electric-emerald);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--electric-emerald);
+            box-shadow: 0 0 40px rgba(0, 255, 127, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-card .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card a {
+            color: var(--text-secondary);
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
+            transition: color 0.3s ease;
         }
 
-        .contact-links a:hover {
-            background: #764ba2;
-            transform: translateY(-3px);
+        .contact-card:hover a {
+            color: var(--electric-emerald);
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 60px 20px;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero h2 { font-size: 20px; }
-            h2 { font-size: 28px; }
+            .container {
+                padding: 80px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .process-timeline::before {
+                left: 20px;
+            }
+
+            .process-step {
+                padding-left: 60px;
+            }
+
+            .process-step::before {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <div class="hero">
-        <div>
-            <h1>Your Name</h1>
-            <h2>Full-Stack Developer</h2>
-            <p>Building solutions for real-world problems using modern web technologies</p>
-            <a href="#projects" class="btn">View My Work</a>
-            <a href="#contact" class="btn">Get In Touch</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                I Design & Build <span class="highlight">Websites</span><br>
+                That Help Your <span class="highlight">Business Grow</span>
+            </h1>
+            <p>
+                Full-stack developer specializing in building modern, scalable web applications 
+                that solve real-world problems with clean code and innovative solutions.
+            </p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <div class="container">
+        <h2 class="section-title">Featured <span class="accent">Project</span></h2>
+        
+        <div class="project-card">
+            <h3>🌾 Kisii AgriPrice - SMS Market Information System</h3>
+            <p>
+                A production-ready web application delivering daily market prices via SMS to small-scale farmers 
+                in Kisii, Kenya. Built to address the 20-40% income loss farmers face due to information asymmetry 
+                when dealing with middlemen.
+            </p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Africa's Talking API</span>
+                <span class="tech-tag">RESTful API</span>
+                <span class="tech-tag">Authentication</span>
+                <span class="tech-tag">Session Management</span>
+            </div>
+
+            <p><strong>Key Features:</strong></p>
+            <ul style="color: var(--text-secondary); margin: 20px 0; line-height: 2;">
+                <li>• Secure admin authentication with bcrypt password hashing</li>
+                <li>• Real-time dashboard with farmer stats, SMS logs, and success metrics</li>
+                <li>• Price management system for 6 local crops with timestamp tracking</li>
+                <li>• Comprehensive farmer CRUD operations (create, read, update, delete)</li>
+                <li>• Bulk SMS delivery system with Africa's Talking API integration</li>
+                <li>• Advanced filtering and search functionality</li>
+                <li>• SMS delivery logging and analytics</li>
+            </ul>
+
+            <p><strong>Technical Highlights:</strong></p>
+            <ul style="color: var(--text-secondary); margin: 20px 0; line-height: 2;">
+                <li>• Built complete MVP in 3 days under tight deadline</li>
+                <li>• Implemented secure session-based authentication</li>
+                <li>• Scalable architecture ready for MongoDB migration</li>
+                <li>• Responsive design works on all devices</li>
+                <li>• Clean, maintainable codebase with proper documentation</li>
+            </ul>
+
+            <div class="project-links">
+                <a href="https://kisii-agri-sms.onrender.com" target="_blank" class="project-link">🔗 Live Demo</a>
+                <a href="https://github.com/TALIA-CRYPTO/kisii-agri-sms" target="_blank" class="project-link">💻 View Code</a>
+            </div>
         </div>
     </div>
 
-    <!-- Projects Section -->
+    <!-- Services -->
     <div class="container">
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            
-            <div class="project-card">
-                <h3>🌾 Kisii AgriPrice - SMS Market Prices for Farmers</h3>
-                <p>
-                    A web application that delivers daily market prices via SMS to small-scale farmers in Kisii, Kenya. 
-                    Helps farmers avoid exploitation by middlemen by providing real-time local market information.
-                </p>
-                
-                <div class="tech-stack">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Africa's Talking API</span>
-                    <span class="tech-tag">RESTful API</span>
-                    <span class="tech-tag">Authentication</span>
-                </div>
-
-                <p><strong>Key Features:</strong></p>
-                <ul style="margin: 15px 0 15px 20px;">
-                    <li>Admin authentication & dashboard</li>
-                    <li>Price management for 6 crops</li>
-                    <li>Farmer registration & management</li>
-                    <li>Bulk SMS delivery system</li>
-                    <li>Real-time stats & analytics</li>
-                    <li>SMS logging & tracking</li>
+        <h2 class="section-title">What I <span class="accent">Offer</span></h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Frontend Development</h3>
+                <p>Building responsive, user-friendly interfaces with modern web technologies.</p>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>Responsive Design</li>
+                    <li>React (learning)</li>
+                    <li>Modern UI/UX Principles</li>
                 </ul>
-
-                <p><strong>Impact:</strong> 2 registered farmers, 15+ SMS sent successfully, built in 3 days</p>
-
-                <div class="project-links">
-                    <a href="https://kisii-agri-sms.onrender.com" target="_blank">🔗 Live Demo</a>
-                    <a href="https://github.com/TALIA-CRYPTO/kisii-agri-sms" target="_blank">💻 GitHub</a>
-                </div>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>Responsive Design</li>
-                        <li>React (learning)</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>RESTful APIs</li>
-                        <li>Authentication & Sessions</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Database & Tools</h3>
-                    <ul>
-                        <li>JSON Data Storage</li>
-                        <li>MongoDB (learning)</li>
-                        <li>Git & GitHub</li>
-                        <li>Render Deployment</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Other</h3>
-                    <ul>
-                        <li>SMS API Integration</li>
-                        <li>Agile Development</li>
-                        <li>Problem Solving</li>
-                        <li>Documentation</li>
-                    </ul>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Backend Development</h3>
+                <p>Creating robust server-side applications with secure APIs and authentication.</p>
+                <ul>
+                    <li>Node.js & Express</li>
+                    <li>RESTful API Design</li>
+                    <li>Authentication & Sessions</li>
+                    <li>Database Integration</li>
+                </ul>
             </div>
-        </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 18px; line-height: 1.8;">
-                    I'm a passionate full-stack developer focused on building practical solutions 
-                    for real-world problems. I recently built Kisii AgriPrice, an SMS-based 
-                    market information system for farmers, in just 3 days.
+            <div class="service-card">
+                <div class="service-icon">🔌</div>
+                <h3>API Integration</h3>
+                <p>Connecting your application with third-party services and APIs.</p>
+                <ul>
+                    <li>SMS Integration (Africa's Talking)</li>
+                    <li>Payment Gateways</li>
+                    <li>External APIs</li>
+                    <li>Webhooks</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Database Design</h3>
+                <p>Structuring and managing data efficiently for optimal performance.</p>
+                <ul>
+                    <li>JSON Data Storage</li>
+                    <li>MongoDB (learning)</li>
+                    <li>Data Modeling</li>
+                    <li>Query Optimization</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Deployment</h3>
+                <p>Getting your application live and accessible to users worldwide.</p>
+                <ul>
+                    <li>Cloud Hosting (Render, Railway)</li>
+                    <li>GitHub Pages</li>
+                    <li>CI/CD Pipelines</li>
+                    <li>Domain Configuration</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Full-Stack Solutions</h3>
+                <p>End-to-end application development from concept to deployment.</p>
+                <ul>
+                    <li>MVP Development</li>
+                    <li>Rapid Prototyping</li>
+                    <li>Code Documentation</li>
+                    <li>Maintenance & Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process -->
+    <div class="container">
+        <h2 class="section-title">My <span class="accent">Process</span></h2>
+        
+        <div class="process-timeline">
+            <div class="process-step" data-step="01">
+                <h3>Discovery & Planning</h3>
+                <p>
+                    Understanding your business needs, target audience, and project goals. 
+                    We'll map out features, create wireframes, and establish a clear timeline.
                 </p>
-                <p style="font-size: 18px; line-height: 1.8; margin-top: 20px;">
-                    I love learning new technologies and taking on challenging projects. 
-                    Currently expanding my skills in React, MongoDB, and mobile development.
+            </div>
+
+            <div class="process-step" data-step="02">
+                <h3>Design & Architecture</h3>
+                <p>
+                    Crafting the visual design and system architecture. Choosing the right 
+                    tech stack, database structure, and API integrations for your needs.
                 </p>
             </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Let's Connect</h2>
-            <div class="contact-links">
-                <a href="mailto:moraatalia9@gmail.com">📧 Email</a>
-                <a href="https://github.com/TALIA-CRYPTO" target="_blank">💻 GitHub</a>
-                
+            <div class="process-step" data-step="03">
+                <h3>Development</h3>
+                <p>
+                    Building your application with clean, maintainable code. Regular updates 
+                    and check-ins to ensure we're on track with your vision.
+                </p>
             </div>
-        </section>
+
+            <div class="process-step" data-step="04">
+                <h3>Testing & Refinement</h3>
+                <p>
+                    Thorough testing across devices and browsers. Gathering feedback and 
+                    making refinements to ensure everything works perfectly.
+                </p>
+            </div>
+
+            <div class="process-step" data-step="05">
+                <h3>Launch & Support</h3>
+                <p>
+                    Deploying your application to production and ensuring smooth operation. 
+                    Providing documentation and ongoing support as needed.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="container" id="contact">
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:moraatalia9@gmail.com">moraatalia9@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">💻</div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/TALIA-CRYPTO" target="_blank">@TALIA-CRYPTO</a>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p> 2026 Nyaboga Faith. Built with ❤️ and Node.js</p>
+        <p>2026 TALIA CRYPTO. Built with Node.js, Express, and passion for solving real problems.</p>
     </footer>
 </body>
 </html>
